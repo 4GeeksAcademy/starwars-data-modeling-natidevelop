@@ -15,19 +15,7 @@ class User(Base):
     name = Column(String(250), nullable=False)
 
 
-class Address(Base):
-    __tablename__ = 'address'
-    # Here we define columns for the table address.
-    # Notice that each column is also a normal Python instance attribute.
-    id = Column(Integer, primary_key=True)
-    street_name = Column(String(250))
-    street_number = Column(String(250))
-    post_code = Column(String(250), nullable=False)
-    user_id = Column(Integer, ForeignKey('user.id'))
-    user = relationship(User)
 
-    def to_dict(self):
-        return {}
 
 class Planet(Base):
     __tablename__="planet"
